@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Exercise #15 || Animated logo</title>
+
+	<!-- Reset -->
+	<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/modern-normalize@2.0.0/modern-normalize.min.css">
+
+	<style>
+		.container {
+			display: grid;
+			width: 100%;
+			height: 100vh;
+			place-content: center;
+			background-color: #F6E9FE;
+		}
+
+		/* Air */
+
+		svg rect,
+		svg path{
+			stroke: #100319;
+			stroke-width: 30;
+			stroke-linecap: round;
+		}
+
+		.Logo-sucks{
+			opacity: 0;
+			visibility: hidden;
+			stroke-dasharray: 0% 200%;
+			transition: 2s opacity ease-in-out, 2s stroke-dasharray ease-in-out;
+		}
+
+		.animating{
+			opacity: 1;
+			visibility: visible;
+			stroke-dasharray: 200% 200%;
+
+		}
+
+		svg{
+			overflow: visible;
+		}
+
+		#Group1{
+			transform-origin: center;
+			animation: 3s ease-in-out 5s infinite alternate draw;
+		}
+		
+
+		@keyframes draw{
+			to{
+				transform: scale(1.2);
+			}
+		}
+
+
+	</style>
+</head>
+<body>
+	<div class="container">
+		<!-- Air -->
+		<svg width="468" height="355" viewBox="0 0 468 355" fill="none" xmlns="http://www.w3.org/2000/svg">
+			<g id="Group1">
+			<rect class="Logo-sucks" id="Rectangle_1" x="161" y="15" width="146" height="325" rx="73" border- stroke="black"/>
+			<path class="Logo-sucks" id="Vector_1" d="M15 180V273.97C16.4314 295.297 31.7471 338.35 81.5588 339.95C131.371 341.549 155.275 304.627 161 285.967V180" stroke="black" />
+			<path class="Logo-sucks" id="Vector_2" d="M453 180V86.0296C451.569 64.7029 436.253 21.6498 386.441 20.0503C336.629 18.4508 312.725 55.3726 307 74.0333V180" stroke="black"/>
+			</g>
+			</svg>
+			
+			
+	</div>
+
+	<!-- Air -->
+	<script>
+
+
+		const mainCurve = document.querySelector('#Rectangle_1')
+		const sCurve1 = document.querySelector('#Vector_1')
+		const sCurve2 = document.querySelector('#Vector_2')
+
+
+		setTimeout(()=>{
+
+			mainCurve.classList.add('animating')
+
+		},1000)
+
+		setTimeout(()=>{
+
+			sCurve1.classList.add('animating')
+
+		},2000)
+
+		setTimeout(()=>{
+
+			sCurve2.classList.add('animating')
+
+		},3000)
+	</script>
+</body>
+</html>
